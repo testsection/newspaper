@@ -3,231 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Downtown Post</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            /* background-color: #f5e6c3; */
-            background: url(images/background.jpg);
-            background-repeat: no;
-            background-position: center center;
-            background-size: cover;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            margin: 0;
-            color: #333;
-        }
-
-        .sub-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8em;
-            margin-top: 10px;
-            color: #555;
-        }
-
-        .main-news {
-            text-align: center;
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .article {
-            flex: 1 1 calc(50% - 10px);
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        .article h2 {
-            font-size: 1.2em;
-            margin-top: 0;
-        }
-
-        .photo-placeholder {
-            width: 100%;
-            height: 200px;
-            background: url(images/24trending-shophotels1-articleLarge.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .headline {
-            font-size: 1.5em;
-            text-align: center;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8em;
-            color: #555;
-            border-top: 2px solid #333;
-            padding-top: 10px;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Advanced Newspaper Layout</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Georgia', Times, serif;
+        color: #333;
+        background: url(images/background.jpg);
+        background-repeat: no;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        border-bottom: 3px solid #ccc;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .header .title {
+        font-size: 48px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .header .issue,
+    .header .date {
+        font-size: 14px;
+    }
+
+    /* Breaking News */
+    .breaking-news {
+        padding: 20px 0;
+    }
+
+    .breaking-news .breaking-content {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .breaking-news article {
+        flex: 1;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .breaking-news img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .breaking-news p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .read-more {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #d00000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .read-more:hover {
+        background-color: #900;
+    }
+
+    /* Featured Articles */
+    .featured-articles {
+        padding: 20px 0;
+    }
+
+    .featured-articles .featured-content {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .featured-articles article {
+        display: flex;
+        gap: 15px;
+        flex: 1;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        min-width: 30%;
+    }
+
+    .featured-articles img {
+        width: 120px;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .feature-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .feature-info h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .feature-info p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .feature-info .read-more {
+        align-self: start;
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 20px;
+    }
+
+    .footer p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    .footer a {
+        color: #d00000;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .breaking-news .breaking-content,
+        .featured-articles .featured-content {
+            flex-direction: column;
+        }
+    }
+
+    /* Single-column layout below 450px */
+    @media (max-width: 450px) {
+        .breaking-news .breaking-content,
+        .featured-articles .featured-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+</style>
+
 <body>
     <div class="container">
-        <div class="header">
-            <h1>The Downtown Post</h1>
-            <div class="sub-header">
-                <span>The Weather</span>
-                <span>Last YEAR No. 39%</span>
-                <span>Monday Spring 0.55</span>
-                <span>FINAL</span>
-            </div>
-        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="issue">Issue No. 1024</div>
+            <h1 class="title">THE GLOBAL TIMES</h1>
+            <div class="date">November 13, 2024</div>
+        </header>
 
-        <div class="main-news">Breaking News</div>
+        <!-- Breaking News Section -->
+        <section class="breaking-news">
+            <h2 style="color: white;">Breaking News</h2>
+            <div class="breaking-content">
+                <article>
+                    <h3>Headline 1: World Leaders Convene at Climate Summit</h3>
+                    <figure>
+                        <img src="images/24trending-shophotels1-articleLarge.jpg" alt="World Leaders at Climate Summit">
+                        <figcaption>World leaders discuss climate policies at the summit.</figcaption>
+                    </figure>
+                    <p>Top world leaders gathered today to address urgent climate issues...</p>
+                    <button class="read-more">Read More</button>
+                </article>
+                <article>
+                    <h3>Headline 2: Advances in Renewable Energy</h3>
+                    <figure>
+                        <img src="images/39908467d5ce9c9423bb068437a996d7.jpg" alt="Renewable Energy">
+                        <figcaption>New breakthroughs in renewable energy.</figcaption>
+                    </figure>
+                    <p>Renewable energy has become a focal point in the global movement...</p>
+                    <button class="read-more">Read More</button>
+                </article>
+                <article>
+                    <h3>Headline 3: The Future of Urban Development</h3>
+                    <figure>
+                        <img src="images/4TRJPWG4R5A6HMIK54J5L64IUM.jpeg" alt="Urban Development">
+                        <figcaption>Insights on urban planning and smart cities.</figcaption>
+                    </figure>
+                    <p>Urban planning is transforming with innovations like smart cities...</p>
+                    <button class="read-more">Read More</button>
+                </article>
+            </div>
+        </section>
 
-        <div class="section">
-            <div class="article">
-                <h2>SCANDLE!</h2>
-                <div class="photo-placeholder"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+        <!-- Featured Articles Section -->
+        <section class="featured-articles">
+            <h2 style="color: white;">Features</h2>
+            <div class="featured-content">
+                <article>
+                    <img src="images/7434e12913e30bc37539b68571902a74.jpg" alt="Feature Image 1">
+                    <div class="feature-info">
+                        <h3>The Rise of Renewable Energy</h3>
+                        <p>Renewable energy is becoming a primary focus...</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/wow.jpg" alt="Feature Image 2">
+                    <div class="feature-info">
+                        <h3>The Future of Space Exploration</h3>
+                        <p>Space agencies are advancing with new technologies...</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/photo-1618773928121-c32242e63f39 (1).jpeg" alt="Feature Image 3">
+                    <div class="feature-info">
+                        <h3>Urban Planning Innovations</h3>
+                        <p>Innovations like smart cities and green architecture...</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                </article>
             </div>
-            <div class="article">
-                <h2>Who is respectful for this?</h2>
-                <div class="photo-placeholder"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>SCANDLE!</h2>
-                <div class="photo-placeholder"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>Who is respectful for this?</h2>
-                <div class="photo-placeholder"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>SCANDLE!</h2>
-                <div class="photo-placeholder"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>Who is respectful for this?</h2>
-                <div class="photo-placeholder"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="headline">Screaming Headline</div>
-        <p>Last year something incredible happened. This event made the whole world terrified.</p>
-
-        <div class="section">
-            <div class="article">
-                <h2>How long will this go on?</h2>
-                <div class="photo-placeholder"> </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© 2024 The Global Times. All rights reserved.</p>
+                <p>Contact Us | Privacy Policy | Terms & Conditions</p>
+                <p>Follow us on:
+                    <a href="#">Twitter</a> |
+                    <a href="#">Facebook</a> |
+                    <a href="#">Instagram</a>
+                </p>
             </div>
-            <div class="article">
-                <h2>How long will this go on?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                <div class="photo-placeholder"></div>
-            </div>
-            <div class="article">
-                <h2>How long will this go on?</h2>
-                <div class="photo-placeholder"> </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>How long will this go on?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                <div class="photo-placeholder"></div>
-            </div>
-            <div class="article">
-                <h2>How long will this go on?</h2>
-                <div class="photo-placeholder"> </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>How long will this go on?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                <div class="photo-placeholder"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="article">
-                <h2>Unexpected Discovery</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>Resonance Performance</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>Unexpected Discovery</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>Resonance Performance</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-            </div>
-            <div class="article">
-                <h2>Incredible Event!</h2>
-                <div class="photo-placeholder"> </div>
-            </div>
-            <div class="article">
-                <h2>Incredible Event!</h2>
-                <div class="photo-placeholder"> </div>
-            </div>
-            <div class="article">
-                <h2>Incredible Event!</h2>
-                <div class="photo-placeholder"> </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <span>Last YEAR</span>
-            <span>No. 39%</span>
-            <span>Monday Spring</span>
-            <span>0.55</span>
-        </div>
+        </footer>
     </div>
-
-    
 </body>
 </html>
